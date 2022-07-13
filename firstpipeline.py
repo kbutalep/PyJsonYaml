@@ -9,8 +9,21 @@ def is_yaml(filename):
 
 def do_yaml_to_json(filename):
 	print("do yaml to json")
-	pass
-#####WORK HERE###
+	f = open(filename, "r")
+	data = yaml.safe_load(f.read())
+
+	##print(type(data), data)
+
+	output_filename = filename.replace('.yaml', '.json')
+
+	##print('output:', output_filename)
+
+	outputfile = open(output_filename, "w")
+	outputfile.write(json.dumps(data))
+
+	# cleanup
+	f.close()
+	outputfile.close()
 
 def do_json_to_yaml(filename):
 
